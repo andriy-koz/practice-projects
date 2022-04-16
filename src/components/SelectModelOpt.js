@@ -1,8 +1,9 @@
 import RadioGroup from './RadioGroup';
 import { useState } from 'react';
 import data from '../data.json';
+import { PropaneSharp } from '@mui/icons-material';
 
-const SelectModelOpt = () => {
+const SelectModelOpt = props => {
   const [artefactos, setArtefactos] = useState('');
   const [cocinas, setCocinas] = useState('');
   const [termotanques, setTermotanques] = useState('');
@@ -44,24 +45,28 @@ const SelectModelOpt = () => {
         <RadioGroup
           formLabel={data.modelos.termos.acq.label}
           options={data.modelos.termos.acq.options}
+          onChange={props.selectedModel}
         />
       )}
       {termotanques === 'termotanquesEL' && (
         <RadioGroup
           formLabel={data.modelos.termos.electricos.label}
           options={data.modelos.termos.electricos.options}
+          onChange={props.selectedModel}
         />
       )}
       {cocinas === 'cocinasQ' && (
         <RadioGroup
           formLabel={data.modelos.cocinas.q.label}
           options={data.modelos.cocinas.q.options}
+          onChange={props.selectedModel}
         />
       )}
       {cocinas === 'cocinasE' && (
         <RadioGroup
           formLabel={data.modelos.cocinas.e.label}
           options={data.modelos.cocinas.e.options}
+          onChange={props.selectedModel}
         />
       )}
     </div>

@@ -60,5 +60,44 @@
         ]
       }
     }
+  },
+  "piezas": {
+    "iniciador": {
+      "label": "iniciador",
+      "options": []
+    },
+    "a4": {
+      "label": "Modelo A4",
+      "options": [
+        { "label": "FUNDA GABINETE A4", "cod": "FUND" },
+        { "label": "TERMOSTATO", "cod": "TERM" },
+        { "label": "CAÑO CONEXION BARRAL/TERMOSTATO A4", "cod": "CAÑ" },
+        { "label": "FONDO FUNDA", "cod": "FOND" },
+        { "label": "PROTECCION TELGOPOR INFERIOR", "cod": "PROI" },
+        { "label": "PROTECCION TELGOPOR SUPERIOR", "cod": "PROS" }
+      ]
+    },
+    "a5": {
+      "label": "Modelo A5",
+      "options": [
+        { "label": "FUNDA GABINETE A5", "cod": "FUND" },
+        { "label": "TERMOSTATO", "cod": "TERM" },
+        { "label": "CAÑO CONEXION BARRAL/TERMOSTATO A5", "cod": "CAÑ" },
+        { "label": "FONDO FUNDA", "cod": "FOND" },
+        { "label": "PROTECCION TELGOPOR INFERIOR", "cod": "PROI" },
+        { "label": "PROTECCION TELGOPOR SUPERIOR", "cod": "PROS" }
+      ]
+    },
+    "a6": {
+      "label": "Modelo A6",
+      "options": [
+        { "label": "FUNDA GABINETE A6", "cod": "FUND" },
+        { "label": "TERMOSTATO", "cod": "TERM" },
+        { "label": "CAÑO CONEXION BARRAL/TERMOSTATO A6", "cod": "CAÑ" },
+        { "label": "FONDO FUNDA", "cod": "FOND" },
+        { "label": "PROTECCION TELGOPOR INFERIOR", "cod": "PROI" },
+        { "label": "PROTECCION TELGOPOR SUPERIOR", "cod": "PROS" }
+      ]
+    }
   }
 }

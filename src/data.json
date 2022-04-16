@@ -1,0 +1,64 @@
+{
+  "artefactos": {
+    "label": "Artefactos",
+    "options": [
+      { "label": "Termotanques", "value": "termotanques" },
+      { "label": "Cocinas", "value": "cocinas" }
+    ]
+  },
+  "lineas": {
+    "cocinas": {
+      "label": "Cocinas",
+      "options": [
+        { "label": "Linea Q", "value": "cocinasQ" },
+        { "label": "Linea E-Z", "value": "cocinasE" }
+      ]
+    },
+    "termos": {
+      "label": "Termotanques",
+      "options": [
+        { "label": "Linea ACQ", "value": "termotanquesACQ" },
+        { "label": "Linea Eléctricos y Fortte", "value": "termotanquesEL" }
+      ]
+    }
+  },
+  "modelos": {
+    "termos": {
+      "acq": {
+        "label": "Linea ACQ",
+        "options": [
+          { "value": "a4", "label": "A4" },
+          { "value": "a5", "label": "A5" },
+          { "value": "a6", "label": "A6" }
+        ]
+      },
+      "electricos": {
+        "label": "Linea Eléctricos y Fortte",
+        "options": [
+          { "value": "35lts", "label": "35 Lts." },
+          { "value": "60lts", "label": "60 Lts." },
+          { "value": "75lts", "label": "75 Lts." },
+          { "value": "ftt100", "label": "Ftt 100" }
+        ]
+      }
+    },
+    "cocinas": {
+      "q": {
+        "label": "Linea cocinas Q",
+        "options": [
+          { "value": "q7", "label": "Q7" },
+          { "value": "q10b", "label": "Q10B" },
+          { "value": "q10x", "label": "Q10X" }
+        ]
+      },
+      "e": {
+        "label": "Linea cocinas E, Z o C",
+        "options": [
+          { "value": "e2", "label": "E2" },
+          { "value": "z1b", "label": "Z1B" },
+          { "value": "c2", "label": "C2" }
+        ]
+      }
+    }
+  }
+}

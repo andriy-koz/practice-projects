@@ -21,7 +21,12 @@ const SelectModelOpt = props => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
       <RadioGroup
         formLabel={data.artefactos.label}
         onChange={handleArtefactosChange}

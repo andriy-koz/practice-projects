@@ -7,7 +7,9 @@ import FormLabel from '@mui/material/FormLabel';
 export default function ControlledRadioButtonsGroup(props) {
   return (
     <FormControl>
-      <FormLabel id='demo-controlled-radio-buttons-group'>
+      <FormLabel
+        id='demo-controlled-radio-buttons-group'
+        sx={{ textAlign: 'center' }}>
         {props.formLabel}
       </FormLabel>
       <RadioGroup

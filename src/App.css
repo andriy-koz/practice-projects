@@ -1,4 +1,7 @@
 .App {
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

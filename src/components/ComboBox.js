@@ -11,7 +11,7 @@ export default function ComboBox(props) {
       id='combo-box'
       options={data.piezas[selectedModel].options}
       onChange={props.selectedPart}
-      sx={{ width: 300 }}
+      sx={{ width: 300, marginTop: 4, marginLeft: 'auto', marginRight: 'auto' }}
       renderInput={params => (
         <TextField {...params} label={data.piezas[selectedModel].label} />
       )}

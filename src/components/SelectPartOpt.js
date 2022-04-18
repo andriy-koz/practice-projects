@@ -4,14 +4,13 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 
-const SelectPartOpt = ({ selectedPart }) => {
-  const [counter, setCounter] = useState(0);
-
-  const counterInc = () => setCounter(counter + 1);
-  const counterDec = () => {
-    if (counter > 0) setCounter(counter - 1);
-  };
-
+const SelectPartOpt = ({
+  addPart,
+  selectedPart,
+  counterInc,
+  counterDec,
+  counter,
+}) => {
   return (
     <Box
       sx={{
@@ -38,7 +37,11 @@ const SelectPartOpt = ({ selectedPart }) => {
           +
         </Button>
       </Stack>
-      <Button size='large' variant='contained' sx={{ marginTop: 4 }}>
+      <Button
+        onClick={addPart}
+        size='large'
+        variant='contained'
+        sx={{ marginTop: 4 }}>
         AGREGAR
       </Button>
     </Box>

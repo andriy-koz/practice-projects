@@ -1,6 +1,5 @@
 import RadioGroup from './RadioGroup';
 import data from '../data.json';
-import { PanoramaPhotosphere } from '@mui/icons-material';
 
 const SelectModelOpt = props => {
   return (

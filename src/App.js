@@ -5,6 +5,7 @@ import ComboBox from './components/ComboBox';
 import SelectPartOpt from './components/SelectPartOpt';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import ScrapList from './components/ScrapList';
 
 function App() {
   const [selectedModel, setSelectedModel] = useState('');
@@ -12,7 +13,13 @@ function App() {
   const [artefactos, setArtefactos] = useState('');
   const [cocinas, setCocinas] = useState('');
   const [termotanques, setTermotanques] = useState('');
+  const [partList, setPartList] = useState([]);
+  const [counter, setCounter] = useState(0);
 
+  const counterInc = () => setCounter(counter + 1);
+  const counterDec = () => {
+    if (counter > 0) setCounter(counter - 1);
+  };
   const handleArtefactosChange = e => {
     setArtefactos(e.target.value);
     if (e.target.value === 'cocinas') setTermotanques('');
@@ -36,6 +43,12 @@ function App() {
   };
   const resetSelectedModel = () => {
     setSelectedModel('');
+  };
+  const addPartHandler = () => {
+    setPartList(prevState => [
+      ...prevState,
+      { label: selectedPart.label, cod: selectedPart.cod, amount: counter },
+    ]);
   };
 
   return (
@@ -67,8 +80,15 @@ function App() {
         />
       )}
       {selectedPart && selectedModel && (
-        <SelectPartOpt selectedPart={selectedPart} />
+        <SelectPartOpt
+          counter={counter}
+          counterInc={counterInc}
+          counterDec={counterDec}
+          addPart={addPartHandler}
+          selectedPart={selectedPart}
+        />
       )}
+      <ScrapList partList={partList} />
     </Container>
   );
 }

@@ -6,6 +6,7 @@ import SelectPartOpt from './components/SelectPartOpt';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import ScrapList from './components/ScrapList';
+import Button from '@mui/material/Button';
 
 function App() {
   const [selectedModel, setSelectedModel] = useState('');
@@ -52,7 +53,8 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Typography
         variant='h3'
         component='h1'
@@ -88,7 +90,12 @@ function App() {
           selectedPart={selectedPart}
         />
       )}
-      <ScrapList partList={partList} />
+      {partList && <ScrapList partList={partList} />}
+      {partList && (
+        <Button size='large' variant='contained' sx={{ marginTop: 4 }}>
+          ENVIAR
+        </Button>
+      )}
     </Container>
   );
 }

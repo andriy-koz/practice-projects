@@ -4,20 +4,16 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const ScrapList = ({ partList }) => {
+const ScrapList = ({ partList, deletePart }) => {
   return (
     <List sx={{ marginTop: 2 }}>
       {partList.map(item => {
         return (
-          <ListItem
-            key={item.cod}
-            secondaryAction={
-              <IconButton edge='end' aria-label='delete'>
-                <DeleteIcon />
-              </IconButton>
-            }>
-            <ListItemText primary={`${item.label} (${item.cod})`} />
-            <ListItemText primary={`${item.amount}`} />
+          <ListItem divider key={item.cod}>
+            <ListItemText
+              primary={`${item.label} ( ${item.amount} )`}
+              secondary={`${item.cod}`}
+            />
           </ListItem>
         );
       })}

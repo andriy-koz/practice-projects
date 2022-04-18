@@ -91,7 +91,7 @@ function App() {
         />
       )}
       {partList && <ScrapList partList={partList} />}
-      {partList && (
+      {partList.length !== 0 && (
         <Button size='large' variant='contained' sx={{ marginTop: 4 }}>
           ENVIAR
         </Button>

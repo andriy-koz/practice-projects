@@ -11,6 +11,31 @@ const SelectPartOpt = ({
   counterDec,
   counter,
 }) => {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const dataToSend = { ...selectedPart, amount: counter };
+
+  const sendData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        'https://scrap-registry-default-rtdb.firebaseio.com/myList.json',
+        {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify(dataToSend),
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+    } catch (err) {
+      setError(err);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <Box
       sx={{
@@ -38,12 +63,14 @@ const SelectPartOpt = ({
         </Button>
       </Stack>
       <Button
-        onClick={addPart}
+        onClick={sendData}
         size='large'
         variant='contained'
         sx={{ marginTop: 4 }}>
         AGREGAR
       </Button>
+      {isLoading ?? <p>Cargando parte...</p>}
+      {error ?? <p>{error}</p>}
     </Box>
   );
 };

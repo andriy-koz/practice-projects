@@ -1,7 +1,6 @@
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import zIndex from '@mui/material/styles/zIndex';
 
 const ScrapList = props => {
   return (

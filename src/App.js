@@ -21,9 +21,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [listSelectedPart, setListSelectedPart] = useState({});
 
-  console.log(myList);
-  console.log(selectedPart);
-
   const sendData = async () => {
     setIsLoading(true);
     try {
@@ -32,7 +29,26 @@ function App() {
         {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify({ ...myList }),
+          body: JSON.stringify({ ...selectedPart, amount: counter }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+    } catch (err) {
+      setError(err);
+    }
+    setIsLoading(false);
+  };
+
+  const deleteData = async id => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://scrap-registry-default-rtdb.firebaseio.com/myList/${id}.json`,
+        {
+          method: 'DELETE',
+          headers: { 'Content-type': 'application/json' },
         }
       );
       if (!response.ok) {
@@ -74,7 +90,6 @@ function App() {
   };
 
   const listItemHandler = (e, item) => {
-    console.log(item);
     setListSelectedPart(item);
     setOpenListItemModal(true);
   };
@@ -112,7 +127,9 @@ function App() {
   };
 
   const deleteItemHandler = async (e, item) => {
+    await deleteData(item.key);
     fetchData();
+    modalHandler();
   };
   return (
     <Container

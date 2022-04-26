@@ -37,8 +37,6 @@ const SelectPartOpt = props => {
         sx={{ marginTop: 4 }}>
         AGREGAR
       </Button>
-      {props.isLoading ?? <p>Cargando parte...</p>}
-      {props.error ?? <p>{props.error}</p>}
     </Box>
   );
 };

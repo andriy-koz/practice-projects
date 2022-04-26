@@ -1,11 +1,12 @@
-import './App.css';
-import SelectModelOpt from './components/SelectModelOpt';
-import { useState } from 'react';
-import ComboBox from './components/ComboBox';
-import SelectPartOpt from './components/SelectPartOpt';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { useState, useEffect } from 'react';
+import './App.css';
+import ComboBox from './components/ComboBox';
+import ListItemModal from './components/ListItemModal';
 import ScrapList from './components/ScrapList';
+import SelectModelOpt from './components/SelectModelOpt';
+import SelectPartOpt from './components/SelectPartOpt';
 
 function App() {
   const [selectedModel, setSelectedModel] = useState('');
@@ -13,8 +14,35 @@ function App() {
   const [artefactos, setArtefactos] = useState('');
   const [cocinas, setCocinas] = useState('');
   const [termotanques, setTermotanques] = useState('');
-  const [partList, setPartList] = useState([]);
   const [counter, setCounter] = useState(0);
+  const [openListItemModal, setOpenListItemModal] = useState(false);
+  const [myList, setMyList] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [listSelectedPart, setListSelectedPart] = useState({});
+
+  console.log(myList);
+  console.log(selectedPart);
+
+  const sendData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        'https://scrap-registry-default-rtdb.firebaseio.com/myList.json',
+        {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify({ ...myList }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+    } catch (err) {
+      setError(err);
+    }
+    setIsLoading(false);
+  };
 
   const counterInc = () => setCounter(counter + 1);
   const counterDec = () => {
@@ -44,16 +72,55 @@ function App() {
   const resetSelectedModel = () => {
     setSelectedModel('');
   };
-  const addPartHandler = () => {
-    setPartList(prevState => [
-      ...prevState,
-      { label: selectedPart.label, cod: selectedPart.cod, amount: counter },
-    ]);
+
+  const listItemHandler = (e, item) => {
+    console.log(item);
+    setListSelectedPart(item);
+    setOpenListItemModal(true);
   };
 
+  const modalHandler = () => {
+    setOpenListItemModal(prevState => !prevState);
+  };
+
+  const fetchData = async () => {
+    const response = await fetch(
+      'https://scrap-registry-default-rtdb.firebaseio.com/myList.json'
+    );
+    const data = await response.json();
+
+    const myListArr = [];
+
+    for (const item in data) {
+      myListArr.push({
+        cod: data[item].cod,
+        label: data[item].label,
+        amount: data[item].amount,
+        key: item,
+      });
+    }
+    setMyList(myListArr);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const onAddPartHandler = async () => {
+    await sendData();
+    fetchData();
+  };
+
+  const deleteItemHandler = async (e, item) => {
+    fetchData();
+  };
   return (
     <Container
-      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
       <Typography
         variant='h3'
         component='h1'
@@ -85,11 +152,20 @@ function App() {
           counter={counter}
           counterInc={counterInc}
           counterDec={counterDec}
-          addPart={addPartHandler}
           selectedPart={selectedPart}
+          isLoading={isLoading}
+          error={error}
+          myList={myList}
+          onAdd={onAddPartHandler}
         />
       )}
-      <ScrapList />
+      <ScrapList myList={myList} listItemHandler={listItemHandler} />
+      <ListItemModal
+        selectedPart={listSelectedPart}
+        handleClose={modalHandler}
+        open={openListItemModal ? true : false}
+        onDelete={deleteItemHandler}
+      />
     </Container>
   );
 }

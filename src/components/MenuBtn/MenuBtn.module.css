@@ -1,0 +1,35 @@
+.menuBtn {
+  width: 3rem;
+  height: auto;
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem;
+  z-index: 4;
+  transition: 0.2s;
+}
+.menuBtn:hover {
+  cursor: pointer;
+}
+
+.dash {
+  margin: 5px 0;
+  height: 0.3rem;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--text-color);
+  transition: 0.2s;
+}
+
+.opened .dash1 {
+  transform: rotate(-45deg) translateY(1.5rem) translateX(0.3rem);
+}
+.opened .dash2 {
+  opacity: 0;
+}
+.opened .dash3 {
+  transform: rotate(45deg) translateY(-1.5rem) translateX(0.3rem);
+}
+
+.opened {
+  transform: translateX(12rem);
+}

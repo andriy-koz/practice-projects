@@ -1,0 +1,20 @@
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+  text-align: center;
+  width: 18rem;
+  border-bottom: 1px solid var(--text-color);
+}
+
+.link:hover,
+.link:focus {
+  padding-left: 1rem;
+  background-color: var(--dark-blue);
+  border-left: 4px solid var(--text-color);
+}
+
+.link:first-of-type {
+  border-top: 1px solid var(--text-color);
+}

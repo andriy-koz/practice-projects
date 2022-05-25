@@ -1,3 +1,12 @@
+:root {
+  --nav-bar-bg-color: #262626;
+  --main-bg-color: #313131;
+  --text-color: #c7c7c7;
+  --hover-color: #4e4e4f;
+  --dark-blue: #28323a;
+  --light-blue: #3178c6;
+}
+
 *,
 *:before,
 *:after {
@@ -7,7 +16,10 @@
 }
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--main-bg-color);
 }

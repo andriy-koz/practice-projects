@@ -1,0 +1,79 @@
+form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.myInput {
+  font-size: 1.8rem;
+  text-align: center;
+  border: 2px solid var(--text-color);
+  padding: 1rem 2rem;
+  background-color: var(--dark-blue);
+  color: var(--text-color);
+  outline: none;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+.myInput:focus {
+  background-color: black;
+  border: 2px solid var(--light-blue);
+}
+
+.myInput::placeholder {
+  color: var(--text-color);
+}
+
+button {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  padding: 0 2rem;
+  background-color: var(--light-blue);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.autocomplete {
+  color: var(--text-color);
+  position: absolute;
+  transition: 0.2s;
+  background-color: black;
+  max-height: 0;
+  width: 26.5rem;
+  bottom: -6px;
+  transform: translateY(100%);
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.autocompleteOpened {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  max-height: 100rem;
+}
+
+.autoCompleteEl {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.autoCompleteEl:hover {
+  cursor: pointer;
+}
+
+.autoCompleteEl span {
+  color: var(--light-blue);
+  font-weight: 900;
+}

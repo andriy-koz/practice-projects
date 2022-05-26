@@ -2,6 +2,7 @@ import React from 'react';
 import { MyState, Part } from '../../App';
 import Input from './Input/Input';
 import classes from './MainView.module.css';
+import PartDisplay from './PartDisplay/PartDisplay';
 
 const MainView = ({
   navState,
@@ -18,7 +19,7 @@ const MainView = ({
         Modelo <span>{navState.selectedModel}</span>
       </h1>
     ) : (
-      <h1>Selecciona un modelo</h1>
+      <h1>Registro de Scrap</h1>
     );
 
   return (
@@ -28,10 +29,14 @@ const MainView = ({
       )}
       <div className={classes.mainView}>
         {title}
-        <Input
-          onPartSelect={onPartSelect}
-          selectedModel={navState.selectedModel}
-        />
+        {navState.selectedModel && (
+          <Input
+            onPartSelect={onPartSelect}
+            selectedModel={navState.selectedModel}
+          />
+        )}
+        {!navState.selectedModel && <h2>Selecciona un modelo</h2>}
+        {navState.selectedPart.name && <PartDisplay navState={navState} />}
       </div>
     </>
   );

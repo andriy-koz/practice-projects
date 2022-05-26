@@ -13,15 +13,15 @@ const Input = ({
   const [openedAutocomplete, setOpenedAutocomplete] = useState(false);
 
   const myArr = [
-    { name: 'elemento', code: '313' },
-    { name: 'elegir', code: '818' },
-    { name: 'parte', code: '444' },
+    { name: 'ELEMENTO', code: '313' },
+    { name: 'ELEGIR', code: '818' },
+    { name: 'PARTE', code: '444' },
   ];
 
   const filteredArr = myArr.filter(item => {
     const str = item.name;
     const enteredStr = enteredValue;
-    const regex = new RegExp(enteredStr, 'g');
+    const regex = new RegExp(enteredStr, 'gi');
     if (enteredValue !== '') {
       return regex.test(str);
     }
@@ -57,7 +57,7 @@ const Input = ({
         onClick={() =>
           autoCompleteSelectHandler({ name: item.name, code: item.code })
         }>
-        <span>{enteredValue}</span>
+        <span>{enteredValue.toUpperCase()}</span>
         <p>{item.name.slice(enteredValue.length)}</p>
       </div>
     );
@@ -80,7 +80,7 @@ const Input = ({
           name='modelo'
           value={enteredValue}
           onChange={inputChangeHandler}
-          placeholder='Ingrese nombre de la pieza'
+          placeholder='Ingrese el nombre de la pieza'
         />
         <div className={autocompleteClasses}>
           {filteredArr.map(filteredArrMapCallback)}

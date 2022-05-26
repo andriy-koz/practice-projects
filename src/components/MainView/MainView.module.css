@@ -26,3 +26,9 @@ h1 span {
   font-weight: 600;
   color: var(--light-blue);
 }
+
+h2 {
+  margin-top: 10rem;
+  font-size: 3rem;
+  font-weight: 400;
+}

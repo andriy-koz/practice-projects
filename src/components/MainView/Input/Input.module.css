@@ -48,7 +48,7 @@ button:hover {
   transition: 0.2s;
   background-color: black;
   max-height: 0;
-  width: 26.5rem;
+  width: 29.5rem;
   bottom: -6px;
   transform: translateY(100%);
   overflow-y: auto;
@@ -65,7 +65,7 @@ button:hover {
   display: flex;
   justify-content: center;
   font-weight: 600;
-  padding: 0.5rem 0;
+  padding: 1.6rem 0;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 

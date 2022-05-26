@@ -1,0 +1,19 @@
+.list {
+  padding: 1rem 0;
+  width: 100%;
+  background-color: var(--light-blue);
+  position: fixed;
+  bottom: 0;
+}
+
+.closedList {
+  position: relative;
+}
+
+.closedList:hover {
+  cursor: pointer;
+}
+
+.closedList h3 {
+  font-size: 4rem;
+}

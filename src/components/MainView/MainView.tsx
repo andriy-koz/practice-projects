@@ -1,6 +1,7 @@
 import React from 'react';
 import { MyState, Part } from '../../App';
 import Input from './Input/Input';
+import List from './List/List';
 import classes from './MainView.module.css';
 import PartDisplay from './PartDisplay/PartDisplay';
 
@@ -37,6 +38,7 @@ const MainView = ({
         )}
         {!navState.selectedModel && <h2>Selecciona un modelo</h2>}
         {navState.selectedPart.name && <PartDisplay navState={navState} />}
+        <List />
       </div>
     </>
   );

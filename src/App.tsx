@@ -9,12 +9,14 @@ export interface Part {
 
 export interface MyState {
   openedNav: boolean;
+  openedList: boolean;
   selectedModel: string;
   selectedPart: Part;
 }
 
 const initialState = {
   openedNav: false,
+  openedList: false,
   selectedModel: '',
   selectedPart: {
     name: '',
@@ -34,16 +36,24 @@ const reducerFunc = (
   if (action.type === 'PART_SELECT') {
     return { ...state, selectedPart: { name: action.name, code: action.code } };
   }
+  if (action.type === 'OPEN_LIST') {
+    const listState = !state.openedList;
+    return { ...state, openedList: listState };
+  }
+
   return state;
 };
 
 function App() {
   const [state, dispatch] = useReducer(reducerFunc, initialState);
 
-  console.log(state);
-
   const openNavHandler = (id: string) => {
     dispatch({ type: 'OPEN_NAV', id: id });
+  };
+
+  const listHandler = () => {
+    console.log('WORKING');
+    dispatch({ type: 'OPEN_LIST' });
   };
 
   return (
@@ -52,6 +62,7 @@ function App() {
       <MainView
         navState={state}
         onOverlayClick={openNavHandler}
+        onListClick={listHandler}
         onPartSelect={part =>
           dispatch({ type: 'PART_SELECT', name: part.name, code: part.code })
         }

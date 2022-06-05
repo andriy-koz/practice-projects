@@ -11,8 +11,9 @@ function App() {
 
   function handleAddTodo(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-
+    if (!text || todos.includes(text)) return;
     setTodos(todos => [...todos, text]);
+    setText('');
   }
 
   return (
@@ -28,7 +29,7 @@ function App() {
       </form>
       <ul>
         {todos.map((todo, index) => (
-          <li>
+          <li key={index}>
             {todo}
             <button onClick={() => handleRemoveTodo(index)}>X</button>
           </li>

@@ -31,7 +31,9 @@ function App() {
         {todos.map((todo, index) => (
           <li key={index}>
             {todo}
-            <button onClick={() => handleRemoveTodo(index)}>X</button>
+            <button onClick={() => handleRemoveTodo(index)} type='button'>
+              X
+            </button>
           </li>
         ))}
       </ul>

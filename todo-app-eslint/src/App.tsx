@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='app'>
       <form onSubmit={handleAddTodo}>
         <input
           name='text'

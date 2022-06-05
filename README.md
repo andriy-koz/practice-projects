@@ -7,4 +7,4 @@ Build a new app every week, add new features every time.
 - material-ui-demo-app - Two page app using Material UI and React Router. Used [this](https://www.youtube.com/watch?v=o1chMISeTC0) Youtube tutorial.
 - scrap-register-app - React, Fetch API, Firebase.
 - scarp-register-app-ts - TypeScript and ESLint, CSS Modules, useReducer.
-- todo-app-eslint-ts - Simpre TODO app configured with Vite, Prettier + ESLint and TypeScript.
+- todo-app-eslint-ts - Simple TODO app configured with Vite, Prettier + ESLint and TypeScript.
